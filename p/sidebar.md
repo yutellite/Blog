@@ -1,6 +1,6 @@
-# [Jason's Blog](.)
+# [yutellite's Blog](.)
 
-> 要有最樸素的生活和最遙遠的夢想，即使明天天寒地凍，山高水遠，路遠馬亡。
+> Things don't always turn out that way in your life. Think twice about the beautiful and ignore the frustration.
 
 - [Project](application/index.md)
 - [Diary](Diary/index.md)
