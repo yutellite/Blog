@@ -9,7 +9,7 @@
   var mainPage = location.search.slice(1)
     .replace(/&.*/, '') || 'Android/index';
   var mainTitle = '';
-  var onlineUrl = 'http://jacsonlee.github.io/Blog/' +
+  var onlineUrl = 'https://yutellite.github.io/blog/' +
     location.search.replace(/&.*/, '');
 
 
@@ -82,7 +82,7 @@
             });
 
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            window.disqus_shortname = 'jacsonlee'; // required: replace example with your forum shortname
+            window.disqus_shortname = 'yutellite'; // required: replace example with your forum shortname
             window.disqus_title = mainTitle;
             window.disqus_identifier = mainPage;
             window.disqus_url = onlineUrl;
