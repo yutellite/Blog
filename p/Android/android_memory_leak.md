@@ -1,19 +1,19 @@
-# Android内存泄漏研究(转)
->* 非常好的一篇文章，厚着脸皮转载了
+# mysql源码结构分析
+>* 参考mysql internals manual
 
-## 概念
+## 主要目录
 
-### 根搜索算法
-
-Android虚拟机的垃圾回收采用的是根搜索算法。GC会从根节点（GC Roots）开始对heap进行遍历。到最后，部分没有直接或者间接引用到GC Roots的就是需要回收的垃圾，会被GC回收掉。
-
-根搜索算法相比引用计数法很好的解决了循环引用的问题。举个例子，Activity有View的引用，View也有Activity的引用，之前我还尝试去源代码里找Activity何时和View断开连接是大错特错了。当Activity finish掉之后，Activity和View的循环引用已成孤岛，不再引用到GC Roots，无需断开也会被回收掉。
-
-### 内存泄露
-
+### 1 BUILD
+BUILD目录中很少东西，主要是compile和link处理所需的一些文件。
+### 2 client
 `Android内存泄漏`指的是进程中某些对象（垃圾对象）已经没有使用价值了，但是它们却可以直接或间接地引用到gc roots导致无法被GC回收。无用的对象占据着内存空间，使得实际可使用内存变小，形象地说法就是内存泄漏了。
 
-
+### 3 Docs
+### 4 myisam
+### 5 mysys
+### 6 sql
+### 7 vio
+---
 ## 场景
 - 类的静态变量持有大数据对象
 静态变量长期维持到大数据对象的引用，阻止垃圾回收。
@@ -82,3 +82,4 @@ Handler通过发送Message与主线程交互，Message发出之后是存储在Me
 [Android进程的内存管理分析](http://blog.csdn.net/gemmem/article/details/8920039)
 
 [memory_management_for_android_apps](http://dubroy.com/memory_management_for_android_apps.pdf)
+---
