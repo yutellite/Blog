@@ -1,6 +1,6 @@
 # [yutellite's Blog](.)
 
-> Things don't always turn out that way in your life. Think twice about the beautiful and ignore the frustration.
+> 常想一二，不思八九。
 
 - [Project](application/index.md)
 - [Diary](Diary/index.md)
