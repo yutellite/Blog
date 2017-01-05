@@ -38,13 +38,7 @@ atop -r atop.log -b begin(hh:mm) -e end(hh:mm) > atop.log.txt
 >* syscpu、usrcpu分别是进程运行时处于系统调用内核态、用户态所占CPU的时间比例。
 
 3、现网cache使用率很高，包括共享内存已经达到mem的92%（总内存338G）， free内存已经只剩659M。
-
-1） 系统CPU和进程CPU波峰图
-![cpu_sys_usr_p_cpu](./cpu_sys_usr_p_cpu.png)
-2） 进程syscpu、usrcpu和CPU波峰图
-![p_syscpu_usrcpu_cpu](./p_syscpu_usrcpu_cpu.png)
-
-3、由于现网并没有gstack，所以无从得知问题复现时进程p的活动。只有通过perf抓取系统调用，看各层调用时耗情况。
+4、由于现网并没有gstack，所以无从得知问题复现时进程p的活动。只有通过perf抓取系统调用，看各层调用时耗情况。
 ```
 perf record -g -p pid //pid进程号，执行完ctrl+c结束
 perf report           //查看结果
