@@ -1,7 +1,4 @@
 
 
-### [Ubantu下安装jdk](ubantuinstalljdk.md)
->* 如何在ubantu下安装jdk
-
-### [迁移你的eclipse项目到IntellJ IDEA](eclipse2Ij.md)
->* 迁移你的eclipse项目到IntellJ IDEA
+### [2017-01-03 中东某大亨国家代表处DU局点限呼问题](2017-01-04-mid-asia-site-problem.md)
+>* 现网升级后出现两次限呼情况，客户异常关注，紧急公关。
