@@ -1,6 +1,6 @@
 # [Ivan's Blog](.)
 
-> 常想一二，不思八九。   
+> 常想一二，不思八九。     
 <!--
 - [Project](application/index.md)
 - [Diary](Diary/index.md)
