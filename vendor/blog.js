@@ -4,7 +4,7 @@
 
 (function () {
 
-  var pageBase = 'p/';
+  var pageBase = 'home/';
   var pageExt = 'md';
   var mainPage = location.search.slice(1)
     .replace(/&.*/, '') || 'Android/index';
@@ -132,7 +132,7 @@
   ]
   var ext = '.gif'
 
-  var src = 'p/ducks/' + sample(names) + ext
+  var src = 'home/ducks/' + sample(names) + ext
   $('<img>').addClass('duck')
     .attr('src', src)
     .appendTo('body')
