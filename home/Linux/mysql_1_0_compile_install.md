@@ -35,7 +35,7 @@ cmake version 3.7.0
 
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
 ```
-##预编译  
+###3 预编译  
 ####获得mysql包
 mysql-5.5.53.tar.gz
 ####创建目录
@@ -74,7 +74,7 @@ time make
 ```
 time make install
 ```
-##初始化
+###4 初始化
 ```
 cd $mysql/script
 ./mysql_install_db --user=mysql --basedir=/usr/local/mysql --datadir=/onip/mysql/data --defaults-file=/etc/my.cnf
@@ -114,7 +114,7 @@ cd /usr/local/mysql/mysql-test ; perl mysql-test-run.pl
 
 Please report any problems at http://bugs.mysql.com/
 ```
-## 启动MySQL 
+###5 启动MySQL 
 ```
 root#cp support-files/mysql.server /etc/init.d/mysqld
 mysql@linux6:~/mysql-5.5.53/sql> ./mysqld   
