@@ -137,3 +137,26 @@ mysql@linux6:~/mysql-5.5.53/sql> ./mysqld
 170112 16:13:21 [Note] ./mysqld: ready for connections.
 Version: '5.5.53-debug'  socket: '/usr/local/mysql/mysql.sock'  port: 3306  Source distribution
 ```
+
+####my.cnf
+[client]
+#password       = your_password
+port            = 3306
+socket          = /usr/local/mysql/mysql.sock
+default-character-set = utf8
+
+# Here follows entries for some specific programs
+
+# The MySQL server
+[mysqld]
+port            = 3306
+socket          = /usr/local/mysql/mysql.sock
+skip-external-locking
+key_buffer_size = 16K
+max_allowed_packet = 1M
+table_open_cache = 4
+sort_buffer_size = 64K
+read_buffer_size = 256K
+read_rnd_buffer_size = 256K
+net_buffer_length = 2K
+thread_stack = 128K
