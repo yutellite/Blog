@@ -114,3 +114,26 @@ cd /usr/local/mysql/mysql-test ; perl mysql-test-run.pl
 
 Please report any problems at http://bugs.mysql.com/
 ```
+## 启动MySQL 
+```
+root#cp support-files/mysql.server /etc/init.d/mysqld
+mysql@linux6:~/mysql-5.5.53/sql> ./mysqld   
+170112 16:13:20 [Note] --secure-file-priv is set to NULL. Operations related to importing and exporting data are disabled
+170112 16:13:20 [Note] ./mysqld (mysqld 5.5.53-debug) starting as process 119751 ...
+170112 16:13:20 InnoDB: !!!!!!!! UNIV_DEBUG switched on !!!!!!!!!
+170112 16:13:20 InnoDB: The InnoDB memory heap is disabled
+170112 16:13:20 InnoDB: Mutexes and rw_locks use GCC atomic builtins
+170112 16:13:20 InnoDB: Compressed tables use zlib 1.2.8
+170112 16:13:20 InnoDB: Using Linux native AIO
+170112 16:13:20 InnoDB: Initializing buffer pool, size = 128.0M
+170112 16:13:20 InnoDB: Completed initialization of buffer pool
+170112 16:13:20 InnoDB: highest supported file format is Barracuda.
+170112 16:13:20  InnoDB: Waiting for the background threads to start
+170112 16:13:21 InnoDB: 5.5.53 started; log sequence number 1595675
+170112 16:13:21 [Note] Server hostname (bind-address): '0.0.0.0'; port: 3306
+170112 16:13:21 [Note]   - '0.0.0.0' resolves to '0.0.0.0';
+170112 16:13:21 [Note] Server socket created on IP: '0.0.0.0'.
+170112 16:13:21 [Note] Event Scheduler: Loaded 0 events
+170112 16:13:21 [Note] ./mysqld: ready for connections.
+Version: '5.5.53-debug'  socket: '/usr/local/mysql/mysql.sock'  port: 3306  Source distribution
+```
