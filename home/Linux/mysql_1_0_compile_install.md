@@ -149,6 +149,7 @@ default-character-set = utf8
 # Here follows entries for some specific programs
 
 # The MySQL server
+```
 [mysqld]
 port            = 3306
 socket          = /usr/local/mysql/mysql.sock
@@ -161,3 +162,4 @@ read_buffer_size = 256K
 read_rnd_buffer_size = 256K
 net_buffer_length = 2K
 thread_stack = 128K
+```
