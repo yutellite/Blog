@@ -139,12 +139,13 @@ Version: '5.5.53-debug'  socket: '/usr/local/mysql/mysql.sock'  port: 3306  Sour
 ```
 
 ####my.cnf
+```
 [client]
 #password       = your_password
 port            = 3306
 socket          = /usr/local/mysql/mysql.sock
 default-character-set = utf8
-
+```
 # Here follows entries for some specific programs
 
 # The MySQL server
