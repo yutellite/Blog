@@ -1,5 +1,5 @@
 ###1 mysqld_main函数
-```
+```c
 mysqld_main
 mysql_service
 win_main
