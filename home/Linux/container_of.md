@@ -3,13 +3,13 @@
 >*include\<linux/kernel.h\>
 
 ###原定义
-```
+```c
 #ifndef offsetof
 #define offsetof(type,member) ((size_t)&((type*)0)->member)
 #endif
 ```
 
-```
+```c
 #ifndef container_of
 #define container_of(ptr,type,member) ({\
     const typeof(((type*)0)->member)* __mptr = (ptr);\
@@ -22,7 +22,7 @@
 typeof为gnu对c的扩展关键词，
 
 ###例子
-```
+```c
 typedef struct rb_tree_node
 {
     int data;
@@ -39,13 +39,13 @@ root=bst_insert(root, rb);
 root->left = (rb_tree_node*)malloc(sizeof(rb_tree_node));
 ```
 现在如果给出了root->left的地址，怎么获取root的地址？
-```
+```c
 rb_tree_node* b=container_of(\&root->left,rb_tree_node,left);
 ```
 
 ###简单构造了两个结点
 
-```
+```c
 rb_tree_node *rb=(rb_tree_node*)malloc(sizeof(rb_tree_node));
 ...
 root=bst_insert(root, rb);
@@ -55,7 +55,7 @@ root->left = (rb_tree_node*)malloc(sizeof(rb_tree_node));
 ```
 
 ###调用
-
+c
 ```
 rb_tree_node* b=container_of(&root->left,rb_tree_node,left);
 typeof(((rb_tree_node*)0)->left) *tem= &root->left;
@@ -64,7 +64,7 @@ i=offsetof(rb_tree_node,left);
 ```
 ###调试
 
-```
+```bash
 Breakpoint 1, main (argc=1, argv=0x7fffffffde88) at rb_tree.c:117
 117         typeof(i) c=0;
 (gdb) n
@@ -108,7 +108,7 @@ $7 = 8
 
 ####3.1 offsetof
 
-```
+```c
 define offsetof(type,member) ((size_t)&((type*)0)->member)
 offsetof成功获取到member成员的相对偏移。
 -bash代码
@@ -116,7 +116,7 @@ offsetof成功获取到member成员的相对偏移。
 $1 = 8
 ```
 
-```
+```c
 ((size_t)&((type*)0)->member)
 2
 1                           0        -->0
@@ -140,7 +140,7 @@ typeof为gnu扩展c的关键词，用以获取其类型，具体用法和实现�
 
 ####3.3 container_of
 
-```
+```c
 #define container_of(ptr,type,member) ({\
     const typeof(((type*)0)->member)* __mptr = (ptr);\
 (type*)((char*)__mptr - offsetof(type,member));})
@@ -153,37 +153,37 @@ ptr为成员的实际地址，type为成员parent结构体类型，member为成�
 注意看：
 
 
-```
+```c
 (type*)((char*)__mptr - offsetof(type,member))
 ```
 其实经过该处理已经能获取到其首地址，为什么还要申请一个临时中间变量
 
-```
+```c
 const typeof(((type*)0)->member)* __mptr = (ptr);
 ```
 注意看区别：
 1、去掉该临时变量
 
 宏定义改为
-```
+```c
  (type*)((char*)ptr - offsetof(type,member));
 .....
 ```
 随便用int去找left的结构体地址
-```
+```c
 int i;
 rb_tree_node* b=container_of(&i,rb_tree_node,left);
 ```
 编译：
 
-```
+```bash
 <20 linux6 [ywx] :/onip/ywx/gtest/googletest-master/googletest/usr/red_black_tree/rb_tree>gcc -o rb_tree rb_tree.c -g
 ```
 编译不会报任何错误
 
 ####3.4 加上该临时变量
 
-```
+```c
 #define container_of(ptr,type,member) ({\
     const typeof(((type*)0)->member)* __mptr = (ptr);\
 (type*)((char*)__mptr - offsetof(type,member));})
@@ -195,7 +195,7 @@ rb_tree_node* b=container_of(&i,rb_tree_node,left);
 ```
 编译：
 
-```
+```bash
 <21 linux6 [ywx] :/onip/ywx/gtest/googletest-master/googletest/usr/red_black_tree/rb_tree>gcc -o rb_tree rb_tree.c -g
 rb_tree.c: In function 'main':
 rb_tree.c:130: warning: initialization from incompatible pointer type
