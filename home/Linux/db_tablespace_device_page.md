@@ -21,19 +21,19 @@ device1   (all the pages in one device are continuous, so can find all the page 
 |            del_count;       |    |            del_count;       |  |            del_count;       |    |            del_count;       |    |            del_count;       | 
 |            data_begin;      |    |            data_begin;      |  |            data_begin;      |    |            data_begin;      |    |            data_begin;      | 
 |             ...             |    |             ...             |  |             ...             |    |             ...             |    |             ...             |           
-|                             |    |record data   record data    |  |record data   record data    |    |record data   record data    |    |record data   record data    |    
+|                             |    |page   data   page   data    |  |page   data   page   data    |    |page   data   page   data    |    |page   data   page   data    |    
 |device head  page_count      |    |...           ...            |  |...           ...            |    |...           ...            |    |...           ...            |    
 |             hwm             |    |                             |  |                             |    |                             |    |                             |    
-|             free_page_count |    |record data   record data    |  |record data   record data    |    |record data   record data    |    |record data   record data    |    
+|             free_page_count |    |page   data   page   data    |  |page   data   page   data    |    |page   data   page   data    |    |page   data   page   data    |    
 |             reserved[64]    |    |...           ...            |  |...           ...            |    |...           ...            |    |...           ...            |    
 |                             |    |                             |  |                             |    |                             |    |                             |    
-|space head   seg_num         |    |record data   record data    |  |record data   record data    |    |record data   record data    |    |record data   record data    |    
+|space head   seg_num         |    |page   data   page   data    |  |page   data   page   data    |    |page   data   page   data    |    |page   data   page   data    |    
 |             free_pages      |    |...           ...            |  |...           ...            |    |...           ...            |    |...           ...            |    
 |             reserved[64]    |    |                             |  |                             |    |                             |    |                             |    
 |                             |    |                             |  |                             |    |                             |    |                             |    
-|record data   record data    |    |record data   record data    |  |record data   record data    |    |record data   record data    |    |record data   record data    |    
+|page   data   page   data    |    |page   data   page   data    |  |page   data   page   data    |    |page   data   page   data    |    |page   data   page   data    |    
 |...           ...            |    |...           ...            |  |...           ...            |    |...           ...            |    |...           ...            |    
-+-----------------------------+    +-----------------------------+  +-----------------------------+    +-----------------------------+    +-----------------------------+    
++-----------------------------+    +-----------------------------+  +-----------------------------+    +-----------------------------+    +-----------------------------+   
 
 page_head                                          device head
 +------------------------------------------+       +-----------------------------+
