@@ -58,7 +58,8 @@
                                                                         2 is a row need to be alterd. It'll find a new slot to record the row and modify the slot_offset
                                                                          in the same slot_id. This guarantee the record rowid will not be changed.. 
                                                                         3 if this page's space is not enough, then it'll alloc a new page and link to the new row record
-                                                                         to guarantee the same rowid.                                 
+                                                                         to guarantee the same rowid. link is to record the new migrate row_id in the original row data which
+                                                                          is link to the new row_id's record in the other page. so we fetch the row through the old row_id to link to the new row_id and find the row record.
                                                                          row_colarr_set_bits(db_char * row_addr, db_uint16 col_id, db_uint8 col_size)    
                                                                          
                                                                          #define HEAP_GET_SLOT_ADDR(page, slot_id)   \                                                                                                                         
