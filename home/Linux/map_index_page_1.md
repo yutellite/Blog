@@ -1,3 +1,4 @@
+```c
 tbl_id:66                                                                                            
 record num:150002                                                                                    
 used pages:644                                                                                       
@@ -155,3 +156,4 @@ given an index, how to get the index page.
     idx_des = dc_get_index_des(session, tbl_handle, index_id)
 2 get the seg_segment_t page through the idx_des->segment in GA pool.
     idx_seg = (seg_segment_t*)SGA_OFFSET2ADDR(iex_des->segment)
+```
