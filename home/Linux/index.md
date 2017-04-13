@@ -6,3 +6,6 @@
 
 ###[DB PAGE](db_table_map_and_page.md)
 >* DB MAP PAGE AND PAGE
+
+###[Hadoop MapReduce](MapReduce-Simplified_Data_Processiong_on_Large_Clusters.md)   
+>* Hadoop Mapreduce Paper
