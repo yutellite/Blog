@@ -1,4 +1,4 @@
-
+```c
 g_instance_id	GMDB(UID)用户ID（7198）						gmstat -m	
 
 CM_SHM_IDX_TO_KEY=((((g_instance_id)&oxFFFF)<<16)|(db_uint32)((idx)&0xFFFF))
@@ -165,20 +165,4 @@ g_app_area_addr(GA_APP_POOL_COUNT=1) only one pool
         |        |
         +--------+	
 g_app_area_addr
-
-
-
-
-
-
-
-
-
-
-
-           	
-
-
-
-
-           	
+```
