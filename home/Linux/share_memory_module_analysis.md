@@ -1,4 +1,6 @@
 ```c
+
+
 g_instance_id	GMDB(UID)用户ID（7198）						gmstat -m	
 
 CM_SHM_IDX_TO_KEY=((((g_instance_id)&oxFFFF)<<16)|(db_uint32)((idx)&0xFFFF))
@@ -47,19 +49,19 @@ CM_SHM_IDX_TO_KEY=((((g_instance_id)&oxFFFF)<<16)|(db_uint32)((idx)&0xFFFF))
 |g_sys_pools[1]	    GA_SESSION_POOL1	 session1		GA_SYS_AREA+1	0x01000001	 KNL_MAX_SESSIONS	            (db_uint32)obj_size	    0);	        (sizeof(knl_session_t) + SESSION_PAGE_SIZE * KNL_STACK_PAGE_COUNT - 4)																		  |
 |g_sys_pools[2]	    GA_SESSION_POOL2	 session2       GA_SYS_AREA+2	0x01000002	 KNL_MAX_SESSIONS	            (db_uint32)obj_size	    0);	        (sizeof(knl_session_t) + SESSION_PAGE_SIZE * KNL_STACK_PAGE_COUNT - 4)																		  |
 |g_sys_pools[3]	    GA_DICTIONARY_POOL	 dictionary     GA_SYS_AREA+3	0x01000003	((cm_get_uint32_param(CM_PARAM_DICTIONARY_CACHE_SIZE) * 1024 * 1024) / DC_PAGE_SIZE)	                                                                                                                          |
-|                                                                                                                   DC_PAGE_SIZE	        0);	        (KNL_MAX_SESSIONS > 1024 ? 32768 : ((cm_get_uint32_param(CM_PARAM_PAGE_SIZE)) > 16384?(cm_get_uint32_param(CM_PARAM_PAGE_SIZE)):16384))//16384|
+|                                                                                                                   DC_PAGE_SIZE	        0);	        (KNL_MAX_SESSIONS > 1024 ? 32768 : ((cm_get_uint32_param(CM_PARAM_PAGE_SIZE)) > 16384?(cm_get_uint32_param(CM_PARAM_PAGE_SIZE)):16384))//16384|	
 |g_sys_pools[4]	    GA_PERM_UNDO_POOL	  perm undo     GA_SYS_AREA+5	0x01000005	 KNL_MAX_SESSIONS	            UD_SET_ITEM_SIZE	    0);	        ((sizeof(ud_seg_item_t) - sizeof(seg_segment_t)) + SEG_SEGMENT_SIZE)						
-|g_sys_pools[5]	    GA_TEMP_UNDO_POOL	  temp undo     GA_SYS_AREA+6	0x01000006	 KNL_MAX_SESSIONS	            UD_SET_ITEM_SIZE	    0);	        ((sizeof(ud_seg_item_t) - sizeof(seg_segment_t)) + SEG_SEGMENT_SIZE)																		  |
-|g_sys_pools[6]	    GA_REP_UNDO_POOL	   rep undo     GA_SYS_AREA+7	0x01000007	 KNL_MAX_SESSIONS	            UD_SET_ITEM_SIZE	    0);	        ((sizeof(ud_seg_item_t) - sizeof(seg_segment_t)) + SEG_SEGMENT_SIZE)																		  |
+|g_sys_pools[5]	    GA_TEMP_UNDO_POOL	  temp undo     GA_SYS_AREA+6	0x01000006	 KNL_MAX_SESSIONS	            UD_SET_ITEM_SIZE	    0);	        ((sizeof(ud_seg_item_t) - sizeof(seg_segment_t)) + SEG_SEGMENT_SIZE)																		  |									
+|g_sys_pools[6]	    GA_REP_UNDO_POOL	   rep undo     GA_SYS_AREA+7	0x01000007	 KNL_MAX_SESSIONS	            UD_SET_ITEM_SIZE	    0);	        ((sizeof(ud_seg_item_t) - sizeof(seg_segment_t)) + SEG_SEGMENT_SIZE)																		  |									
 |g_sys_pools[7]	    GA_LOCK_POOL	      lock			GA_SYS_AREA+8	0x01000008	 cm_get_uint32_param(CM_PARAM_MAX_LOCKS)	
-|                                                                                                                   sizeof(lock_item_t)	    0);	        sizeof(lock_item_t)	                                                                                                         				  |
+|                                                                                                                   sizeof(lock_item_t)	    0);	        sizeof(lock_item_t)	                                                                                                         				  |									
 |g_sys_pools[8]	    GA_SQL_ROOT_POOL	  sql root      GA_SYS_AREA+9	0x01000009	 1	                            GA_SQL_ROOT_POOL_SIZE	0);	        (db_uint32)(2 * 1048576)  /* 2M */	                				                                                             			  |
 |                   																							
 |g_sys_pools[9]	    GA_SQL_8K_POOL	      sql 8k        GA_SYS_AREA+10	0x01000010	 INS_SQL_OBJ_COUNT(2,8)	        8192	                0);	        8192	8k																																	  |
 |g_sys_pools[10]	GA_SQL_16K_POOL	      sql 16k       GA_SYS_AREA+11	0x01000011	 INS_SQL_OBJ_COUNT(4,16)	    16384	                0);	        16384	16k																											                          |
 |g_sys_pools[11]	GA_SQL_32K_POOL	      sql 32k       GA_SYS_AREA+12	0x01000012	 INS_SQL_OBJ_COUNT(4,32)	    32768	                0);	        32768	32k																											                          |
 |g_sys_pools[12]	GA_SEQUENCE_POOL	  sequence  	GA_SYS_AREA+4	0x01000004	 1	                            GA_SEQUENCE_POOL_SIZE	0);	        (db_uint32)1048576					                                                                                                          |
-|g_sys_pools[13]	GA_PRIVS_CACHE_POOL	  privs cache   GA_SYS_AREA+14	0x01000014	 1	                            GA_PC_POOL_SIZE	        0);	        (db_uint32)(1048576 / 2)  /* 512k																			                                  |
+|g_sys_pools[13]	GA_PRIVS_CACHE_POOL	  privs cache   GA_SYS_AREA+14	0x01000014	 1	                            GA_PC_POOL_SIZE	        0);	        (db_uint32)(1048576 / 2)  /* 512k																			                                  |								
 |g_sys_pools[14]	GA_SORT_POOL	      sort          GA_APP_AREA+0	0x02000000	 INS_SORT_OBJ_COUNT	            GA_SORT_PAGE_SIZE	    0);    	    (db_uint32)32768  			        																										  |
 |
 |g_app_pools[0]	    GA_CURSOR_POOL	      cursor        GA_SYS_AREA+13	0x01000013	 4096	                        INS_CURSOR_SIZE	        instance_cursor_ex_max(4096));	(sizeof(knl_cursor_t) + SPC_PAGE_SIZE * 2 - 4)                                                                            |
@@ -156,6 +158,16 @@ pool_offset[0]
       +-------------------------------------------------+
 
 
+
+
+
+
+
+
+
+
+
+
 二、g_app_area_addr共享内存
 g_app_area_addr(GA_APP_POOL_COUNT=1) only one pool
         +--------+	
@@ -165,4 +177,5 @@ g_app_area_addr(GA_APP_POOL_COUNT=1) only one pool
         |        |
         +--------+	
 g_app_area_addr
+
 ```
