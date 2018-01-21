@@ -7,7 +7,7 @@
   var pageBase = 'home/';
   var pageExt = 'md';
   var mainPage = location.search.slice(1)
-    .replace(/&.*/, '') || 'Android/index';
+    .replace(/&.*/, '') || 'Linux/index';
   var mainTitle = '';
   var onlineUrl = 'https://yutellite.github.io/blog/' +
     location.search.replace(/&.*/, '');
